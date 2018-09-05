@@ -27,8 +27,9 @@ python process.
 3. Spin up this image and get shell in it:
 
    ```bash
-   docker run -it --pid=host --cap-add SYS_PTRACE yuvipanda/pyflame:py3.6-1.6.3 /bin/bash
+   docker run -it --pid=host --privileged --cap-add SYS_PTRACE yuvipanda/pyflame:py3.6-1.6.3 /bin/bash
    ```
+    > add --privileged to solve `Failed to setns 4: Operation not permitted` error
 
 4. Find the pid of the process you want to profile. You can use normal tools like
    `top` or `ps` for this - they will show all processes runningin the host, including
